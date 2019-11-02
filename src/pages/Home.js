@@ -1,9 +1,15 @@
 import React, { PureComponent } from "react";
+import { Container } from "react-bootstrap";
+import EnvForm from "../components/Form";
 
 class Home extends PureComponent {
 	render() {
 		return (
-			<h1>Home</h1>
+			<div className="home">
+				<Container>
+					<EnvForm></EnvForm>
+				</Container>
+			</div>
 		);
 	}
 }
