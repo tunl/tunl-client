@@ -20,10 +20,10 @@ class EnvForm extends Component {
             image: this.state.image
         }
 
-        axios.defaults.baseURL = 'http://localhost:5000';
+        axios.defaults.baseURL = 'api';
         axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
         axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
-        await axios.post('/create', data
+        await axios.post('/create/', data
         ).then(async (res) => {
             return {
                 confirmed: await swal({
