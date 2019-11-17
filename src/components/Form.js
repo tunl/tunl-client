@@ -8,7 +8,7 @@ class EnvForm extends Component {
 
     constructor(props) {
         super(props)
-        this.state = { image: '' }
+        this.state = { image: '', password: '' }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -17,7 +17,8 @@ class EnvForm extends Component {
         event.preventDefault();
 
         let data = {
-            image: this.state.image
+            image: this.state.image,
+            password: this.state.password
         }
 
         axios.defaults.baseURL = 'api';
@@ -34,10 +35,13 @@ class EnvForm extends Component {
                 }), url: res.data.url
             }
         }).then(data => {
-            console.log(data)
             window.open("http://" + data.url, "_blank")
         }).catch(err =>
-            alert(err)
+            swal({
+                title: "Something went wrong",
+                text: err.toString(),
+                icon: "error"
+            })
         )
     }
 
@@ -52,9 +56,15 @@ class EnvForm extends Component {
                 <Card.Body>
                     <Form className="form" onSubmit={this.handleSubmit}>
                         <Form.Group>
-                            <Form.Label>Select a Docker Image</Form.Label>
-                            <Form.Control value={this.state.image} onChange={(event) => { this.setState({ image: event.target.value }) }} required placeholder="Enter a docker image name" />
+                            <Form.Label>Docker Image</Form.Label>
+                            <Form.Control value={this.state.image} onChange={(event) => { this.setState({ image: event.target.value }) }} placeholder="podcastsh/cast-sh:dev" />
                             <Form.Text className="text-muted">
+                                Default: "podcastsh/cast-sh:dev"
+                            </Form.Text>
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control type="password" value={this.state.password} onChange={(event) => { this.setState({ password: event.target.value }) }} placeholder="admin" />
+                            <Form.Text className="text-muted">
+                                If not set, the default password will be "admin"
                             </Form.Text>
                         </Form.Group>
                         <Button className="button" variant="primary" type="submit">
