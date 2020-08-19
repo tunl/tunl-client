@@ -18,17 +18,12 @@
   font-style: normal;
 }
 
-.podcast {
+.tunl {
   font-family: "siffon outline";
 }
 
-.podcast > span {
-  padding: 0.25em ;
-  padding-bottom: 0;
-  margin-right: 5px;
-  background: #1f1f1f;
-  font-family: "siffon";
-  color: white;
+.tunl > img {
+  height: 30px;
 }
 
 .navbar {
@@ -60,7 +55,7 @@
   overflow: hidden;
 }
 
-.podcast-logo {
+.tunl-logo {
   height: 75px;
 }
 

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Form, Button, Card } from "react-bootstrap";
-import logo from "../assets/img/podcast.png";
+import logo from "../assets/img/tunl.png";
 import axios from 'axios';
 import swal from '@sweetalert/with-react';
 
@@ -50,7 +50,7 @@ class EnvForm extends Component {
         return (
             <Card className="env-form">
                 <Card.Header className="form-header">
-                    <img alt="Podcast Logo" className="podcast-logo" src={logo} />
+                    <img alt="tunl logo" className="tunl-logo" src={logo} />
                     <h2>Create an environment</h2>
                 </Card.Header>
                 <Card.Body>
